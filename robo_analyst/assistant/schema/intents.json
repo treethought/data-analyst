@@ -1,0 +1,335 @@
+[
+    {
+        "name": "Greetings",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [
+            {
+                "data": [
+                    {
+                        "text": "Hi",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "hello",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "help",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "start",
+                        "userDefined": false
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            }
+        ],
+        "responses": [
+            {
+                "action": "welcome",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "e3359c99-6b2e-4959-9198-60f47df0edd6"
+    },
+    {
+        "name": "SelectMetrics",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [
+            {
+                "data": [
+                    {
+                        "text": ""
+                    },
+                    {
+                        "text": "sales",
+                        "meta": "@metrics",
+                        "alias": "metrics",
+                        "userDefined": true
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": ""
+                    },
+                    {
+                        "text": "sales",
+                        "meta": "@metrics",
+                        "alias": "metrics",
+                        "userDefined": true
+                    },
+                    {
+                        "text": "and quantity sold "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": ""
+                    },
+                    {
+                        "text": "discounts",
+                        "meta": "@metrics",
+                        "alias": "metrics",
+                        "userDefined": true
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": ""
+                    },
+                    {
+                        "text": "all",
+                        "meta": "@metrics",
+                        "alias": "metrics",
+                        "userDefined": true
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            }
+        ],
+        "responses": [
+            {
+                "action": "set_metrics",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [
+                    {
+                        "name": "metrics",
+                        "value": "$metrics",
+                        "dataType": "@metrics",
+                        "prompts": [],
+                        "required": false,
+                        "isList": true,
+                        "defaultValue": ""
+                    }
+                ],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "cf191882-5074-48e0-accb-620d2adbebdc"
+    },
+    {
+        "name": "SelectTimePeriod",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [
+            {
+                "data": [
+                    {
+                        "text": "last 3 weeks "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "last 2 days "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": ""
+                    },
+                    {
+                        "text": "yesterday",
+                        "meta": "@sys.date-time",
+                        "alias": "date-time",
+                        "userDefined": true
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "past month "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "3 months "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "5 days "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            },
+            {
+                "data": [
+                    {
+                        "text": "past 4 months "
+                    }
+                ],
+                "isTemplate": false,
+                "count": 0
+            }
+        ],
+        "responses": [
+            {
+                "action": "begin_time_dialogue",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [
+                    {
+                        "name": "date-time",
+                        "value": "$date-time",
+                        "dataType": "@sys.date-time",
+                        "prompts": [],
+                        "required": true,
+                        "isList": false,
+                        "defaultValue": ""
+                    }
+                ],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "e9afe77f-9014-4b3c-a604-4da180a8a72c"
+    },
+    {
+        "name": "StepToProducts",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [],
+        "responses": [
+            {
+                "action": "step_to_products",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [
+                    {
+                        "name": "bymonth",
+                        "value": "$bymonth",
+                        "dataType": "@bymonth",
+                        "prompts": [],
+                        "required": true,
+                        "isList": false,
+                        "defaultValue": ""
+                    },
+                    {
+                        "name": "byweek",
+                        "value": "$byweek",
+                        "dataType": "@byweek",
+                        "prompts": [],
+                        "required": true,
+                        "isList": false,
+                        "defaultValue": ""
+                    },
+                    {
+                        "name": "byday",
+                        "value": "$byday",
+                        "dataType": "@byday",
+                        "prompts": [],
+                        "required": true,
+                        "isList": false,
+                        "defaultValue": ""
+                    }
+                ],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "2671d016-3596-41e2-b34e-d394813061e6"
+    },
+    {
+        "name": "AskProducts",
+        "auto": true,
+        "contexts": [],
+        "templates": [],
+        "userSays": [],
+        "responses": [
+            {
+                "action": "action_func",
+                "resetContexts": false,
+                "affectedContexts": [],
+                "parameters": [],
+                "messages": []
+            }
+        ],
+        "priority": 500000,
+        "fallbackIntent": false,
+        "webhookUsed": true,
+        "webhookForSlotFilling": true,
+        "events": [],
+        "id": "1e615fef-812c-45cf-93cb-fc192288b96c"
+    }
+]

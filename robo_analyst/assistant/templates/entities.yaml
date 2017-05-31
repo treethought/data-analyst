@@ -1,0 +1,52 @@
+# Template file for entities
+
+#Format as below
+
+# entity_name:
+#  - entry1: list of synonyms 
+#  - entry2: list of synonyms 
+
+#For example:
+
+# drink:
+#  - water: ['aqua', 'h20'] 
+#  - coffee: ['joe', 'caffeine', 'espresso', 'late'] 
+#  - soda: ['pop', 'coke']
+
+
+
+metric_name:
+  - sales: [sales, sale]
+  - quantity sold: [quantity, quantity sold, sold quantity]
+  - discounts: [discount, discounts]
+  - refunds: [refund, refunds]
+  - all: ['all']
+
+
+metrics:
+  - "@metric_name"
+  - "@metric_name and @metric_name"
+  - "@metric_name, @metric_name, and @metric_name"
+  - "@metric_name @metric_name @metric_name"
+  - "@metric_name @metric_name @metric_name @metric_name"
+
+
+answer:
+  - 'yes': ['yes', ya, sure]
+  - 'no': ['no', nope]
+
+bymonth:
+  - "@answer"
+
+byweek:
+  - "@answer"
+
+byday:
+  - "@answer"
+
+scope_answer:
+  - all: [all, all products, all of them, all stores]
+  - specific: [ceratin, specific, choose, certain products, certain stores, ]
+
+
+

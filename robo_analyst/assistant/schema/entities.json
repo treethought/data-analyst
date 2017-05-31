@@ -1,0 +1,142 @@
+[
+    {
+        "name": "metric_name",
+        "entries": [
+            {
+                "value": "sales",
+                "synonyms": [
+                    "sales",
+                    "sale"
+                ]
+            },
+            {
+                "value": "quantity sold",
+                "synonyms": [
+                    "quantity",
+                    "quantity sold",
+                    "sold quantity"
+                ]
+            },
+            {
+                "value": "discounts",
+                "synonyms": [
+                    "discount",
+                    "discounts"
+                ]
+            },
+            {
+                "value": "refunds",
+                "synonyms": [
+                    "refund",
+                    "refunds"
+                ]
+            },
+            {
+                "value": "all",
+                "synonyms": [
+                    "all"
+                ]
+            }
+        ],
+        "isEnum": null,
+        "id": "db12f1b9-92e9-4409-bb68-3e8ade088af2"
+    },
+    {
+        "name": "metrics",
+        "entries": [
+            {
+                "value": "@metric_name",
+                "synonyms": [
+                    "@metric_name"
+                ]
+            },
+            {
+                "value": "@metric_name and @metric_name",
+                "synonyms": [
+                    "@metric_name and @metric_name"
+                ]
+            },
+            {
+                "value": "@metric_name, @metric_name, and @metric_name",
+                "synonyms": [
+                    "@metric_name, @metric_name, and @metric_name"
+                ]
+            },
+            {
+                "value": "@metric_name @metric_name @metric_name",
+                "synonyms": [
+                    "@metric_name @metric_name @metric_name"
+                ]
+            },
+            {
+                "value": "@metric_name @metric_name @metric_name @metric_name",
+                "synonyms": [
+                    "@metric_name @metric_name @metric_name @metric_name"
+                ]
+            }
+        ],
+        "isEnum": true,
+        "id": "b61f2dfc-65be-4636-9fa5-29e36aa9a617"
+    },
+    {
+        "name": "answer",
+        "entries": [
+            {
+                "value": "yes",
+                "synonyms": [
+                    "yes",
+                    "ya",
+                    "sure"
+                ]
+            },
+            {
+                "value": "no",
+                "synonyms": [
+                    "no",
+                    "nope"
+                ]
+            }
+        ],
+        "isEnum": null,
+        "id": "479ebb3d-8333-4f62-94cc-c496b32d4a6b"
+    },
+    {
+        "name": "bymonth",
+        "entries": [
+            {
+                "value": "@answer",
+                "synonyms": [
+                    "@answer"
+                ]
+            }
+        ],
+        "isEnum": true,
+        "id": "d8c958dd-0505-46ae-b65d-84c70eb8a7b5"
+    },
+    {
+        "name": "byweek",
+        "entries": [
+            {
+                "value": "@answer",
+                "synonyms": [
+                    "@answer"
+                ]
+            }
+        ],
+        "isEnum": true,
+        "id": "31fbc7d1-6403-4753-9aae-de765ff768fc"
+    },
+    {
+        "name": "byday",
+        "entries": [
+            {
+                "value": "@answer",
+                "synonyms": [
+                    "@answer"
+                ]
+            }
+        ],
+        "isEnum": true,
+        "id": "c22e0a7f-e7d7-4e2c-8c28-aa3e066c7f91"
+    }
+]

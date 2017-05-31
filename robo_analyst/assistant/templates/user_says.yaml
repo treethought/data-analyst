@@ -1,0 +1,60 @@
+# Template for defining UserSays examples
+
+# give-color-intent:
+
+#  UserSays:
+#    - My color is blue
+#    - red is my favorite color
+
+#  Annotations:
+#    - blue: sys.color     # maps param value -> entity
+#    - red: sys.color
+
+
+
+Greetings:
+  UserSays:
+  - Hi
+  - hello
+  - help
+  - start
+
+SelectMetrics:
+  UserSays:
+  - sales
+  - sales and quantity sold
+  - discounts
+  - all 
+
+  Annotations:
+    - sales: metrics
+    - sales and quantity: metrics
+    - discounts: metrics
+    - all: metrics
+
+SelectTimePeriod:
+  UserSays:
+  - last 3 weeks
+  - last 2 days
+  - yesterday
+  - past month
+  - 3 months
+  - 5 days
+  - past 4 months
+
+  Annotations:
+    - last 3 weeks: sys.date-time
+    - last 2 days: sys.date-time
+    - yesterday: sys.date-time
+    - past month: sys.date-time
+    - 3 months: sys.date-time
+    - 5 days: sys.date-time
+    - past 4 months: sys.date-time
+
+
+
+
+
+
+
+
