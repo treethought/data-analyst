@@ -1,0 +1,107 @@
+{% extends "_base.html" %} {% block content %}
+
+<div class="body-content">
+    <div class="row">
+
+    </div>
+    <div class="row">
+
+        <div class="col-xs-5">
+            <h1>Data Analyst</h1>
+            <p><input size=50 type=text placeholder="ex. Show max runtime by workflow" name=query></p>
+            <p><button type="Submit" id='submit' class="btn btn-primary">Submit</button></p>
+        </div>
+        <div class="col-xs-6">
+            <h3>Client Request to Server:</h3>
+            <pre id='client_request_panel'></pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>Results</h2>
+    </div>
+
+    <div class="row">
+
+
+
+        <div class="col-xs-6">
+            <h3>Raw JSON Response from Server</h3>
+            <pre id='server-json-result'></pre>
+        </div>
+
+        <div class="col-xs-6">
+              <div id='question-text-response'></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+    $(function() {
+        var sessionID;
+        var currentData = {};
+        var rawJson;
+        var text;
+        var clientRequest = $('#client_request_panel');
+        var serverResponse = $('#server-json-result');
+        var textResultField = $('#question-text-response')
+        var message = {
+                "messageType": "initialMessage",
+                "messageGoesToType": 'python',
+                "messageSentNumber": 0,
+                "messageNumber": 0,
+                "messageData": {
+                    "text": $('input[name="query"]').val(),
+                    "options": {
+                        "a": $('input[name="option-a"]:checked').val(),
+                        "b": $('input[name="option-b"]:checked').val(),
+                        "per": $('select[name="per-select"]').val(),
+                        "duration": $('select[name="duration-select"]').val(),
+                    }
+                }
+            }
+        $('#submit').click(function() {
+            console.log('clicked');
+            message["messageData"] = {
+                    "text": $('input[name="query"]').val(),
+                    "options": {
+                        // "a": $('input[name="option-a"]:checked').val(),
+                        // "b": $('input[name="option-b"]:checked').val(),
+                        // "per": $('select[name="per-select"]').val(),
+                        // "duration": $('select[name="duration-select"]').val(),
+                    }
+                }
+            // clientRequest.empty();
+            // clientRequest.append(JSON.stringify(message, undefined, 3));
+            $.ajax({
+                type: "POST",
+                url: '/send_query',
+                headers: {
+                    "sessionID": sessionID,
+                },
+                data: JSON.stringify(message, null, '\t'),
+                contentType: 'application/json;charset=UTF-8',
+                success: function(result, status, request) {
+                    sessionID = request.getResponseHeader('sessionID');
+                    console.log('Received sessionID: ' + sessionID);
+                    // message["messageSentNumber"] = result["messageSentNumber"]
+                    // message["messageNumber"] = result["messageNumber"]
+                    // message["messageGoesToType"] = result["messageGoesToType"]
+                    rawJson = result; // core json data, ohers are for viwing
+                    // textResponse = result['messageData']['question'];
+                    serverResponse.empty();
+                    textResultField.empty();
+                    serverResponse.append('Current sessionID from header: ' + sessionID + '\n\n');
+                    serverResponse.append(JSON.stringify(rawJson, undefined, 3));
+                    // textResultField.append('<h4>' + textResponse + '</h4>');
+                }
+            });
+        });
+    });
+</script>
+
+
+{% endblock %}
