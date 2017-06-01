@@ -19,9 +19,9 @@ logging.getLogger('flask_assistant').setLevel(logging.DEBUG)
 
 @assist.action('Greetings')
 def welcome():
-    speech = """Hi! I'm robo analyst and I can help you learn more about the performance of your products.\n\n
+    speech = """Hi! I'm robo analyst and I can help you learn more about the performance of your products.<br/><br/>
 
-        With that said, do you want to know about \n
+        With that said, do you want to know about <br/>
         a) sales
         b) quantity sold
         c) discounts
@@ -143,8 +143,8 @@ def store_answer(answer):
 @assist.action('AskProductScope')
 def ask_products():
     metrics = manager.get('data').get('metrics')
-    speech = """Do you want to see {} for: \n\n
-                a) all the products \n
+    speech = """Do you want to see {} for: <br/><br/>
+                a) all the products <br/>
                 b) just for certain products?""".format(metrics)
 
     return ask(speech)
@@ -166,7 +166,7 @@ def action_func(scope):
 @assist.context('specific-products')
 @assist.action('SelectProducts')
 def action_func():
-    speech = """If you know what products you would like to see let me know.\n\n
+    speech = """If you know what products you would like to see let me know.<br/><br/>
                 Or if you'd like me to list them out type 'list products'..."""
     return ask(speech)
 
@@ -197,7 +197,7 @@ def action_func(measure_type):
 # Event for listing products
 @assist.action('ListProducts')
 def action_func():
-    speech = """Heres a list of your current products:\n\n
+    speech = """Heres a list of your current products:<br/><br/>
                 - p1
                 - p2
                 - p3
@@ -208,7 +208,7 @@ def action_func():
 # Event for listing stores
 @assist.action('ListStores')
 def action_func():
-    speech = """Heres a list of your current stores:\n\n
+    speech = """Heres a list of your current stores:<br/><br/>
                 - s1
                 - s2
                 - s3
@@ -224,8 +224,8 @@ def action_func():
 
 @assist.action('AskStoreScope')
 def action_func():
-    speech = """Would you like to see the information for\n\n
-                a) all stores\n
+    speech = """Would you like to see the information for<br/><br/>
+                a) all stores<br/>
                 b) certain stores?
                 """
     return ask(speech)
@@ -248,7 +248,7 @@ def action_func(scope):
 @assist.context('specific-stores')
 @assist.action('SelectStores')
 def action_func():
-    speech = """If you know what stores you would like to see let me know.\n\n
+    speech = """If you know what stores you would like to see let me know.<br/><br/>
                 Or if you'd like me to list them out type 'list stores'..."""
     return ask(speech)
 
@@ -292,12 +292,12 @@ def action_func():
 
     else:
         return event('AskSortType')
-        speech = 'How would you like to sort {}? \n a) from largest to smallest b) from smallest to largest'.format(metrics[0])
+        speech = 'How would you like to sort {}? <br/> a) from largest to smallest b) from smallest to largest'.format(metrics[0])
         return ask(speech)
 
 @assist.action('SelectMetricToSort')
 def action_func():
-    speech = "Which measure would you like to sort the information by? \n {}".format(metrics)
+    speech = "Which measure would you like to sort the information by? <br/> {}".format(metrics)
     return ask(speech)
 
 @assist.action('SelectMetricToSort - followup')
@@ -308,7 +308,7 @@ def action_func(metrics):
 @assist.action('AskSortType')
 def action_func():
     metrics = manager.get('data').get('metrics')
-    speech = 'How would you like to sort {}? \n a) from largest to smallest b) from smallest to largest'.format(metrics[0])
+    speech = 'How would you like to sort {}? <br/> a) from largest to smallest b) from smallest to largest'.format(metrics[0])
     return ask(speech)
 
 @assist.action('AskSortType - followup')
@@ -316,9 +316,9 @@ def action_func(sort_type):
 
     data = manager.get('data')
 
-    speech = 'Sorting with the following parameters:\n\n'
+    speech = 'Sorting with the following parameters:<br/><br/>'
     for k, v in data.parameters.items():
-        speech += '{}: {}\n'.format(k, v)
+        speech += '{}: {}<br/>'.format(k, v)
 
     return tell(speech)
 
