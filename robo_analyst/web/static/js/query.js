@@ -67,7 +67,7 @@ function queryApi(e) {
         textInput.val('');
         textResultField.empty();
         convoData.empty();
-        textResultField.append('<h4>' + speech + '</h4>');
+        textResultField.append('<h4><p>' + speech + '</p></h4>');
         // convoData.append(JSON.stringify(data, undefined, 3));
         convoData.append(data);
         
