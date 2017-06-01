@@ -26,6 +26,7 @@ class DevConfig(Config):
 
     ENV = 'dev'
     DEBUG = True
+    SEND_FILE_MAX_AGE_DEFAULT = 0 # for refeshing static files
 
 class TestConfig(Config):
     """Test configuration."""
